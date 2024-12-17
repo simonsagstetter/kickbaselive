@@ -122,7 +122,7 @@ Im using the Kickbase v4 Endpoints which I have documented in my [Kickbase API v
 
 ## Contributing
 
-Contributions are welcome! Please see into [CONTRIBUTING.md](https://github.com/imonsagstetter/kickbaslive/blob/main/CONTRIBUTING.md) for details on the code of conduct and submission process.
+Contributions are welcome! Please see into [CONTRIBUTING.md](https://github.com/simonsagstetter/kickbaselive/blob/main/CONTRIBUTING.md) for details on the code of conduct and submission process.
 
 ### Roadmap
 
