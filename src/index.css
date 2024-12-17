@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_Bold.woff2') format('woff2'),
+        url('./assets/fonts/volksans_Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_Normal.woff2') format('woff2'),
+        url('./assets/fonts/volksans_Normal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_Regular.woff2') format('woff2'),
+        url('./assets/fonts/volksans_Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_SemiBold.woff2') format('woff2'),
+        url('./assets/fonts/volksans_SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_Light.woff2') format('woff2'),
+        url('./assets/fonts/volksans_Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'volksans';
+    src: url('./assets/fonts/volksans_Black.woff2') format('woff2'),
+        url('./assets/fonts/volksans_Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+#improved-scrollbar::-webkit-scrollbar {
+    background-color: transparent;
+    width: 7px;
+}
+
+#improved-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #777;
+    border-radius: 2rem;
+}
+
+#smooth-edges-before::before,
+#smooth-edges-after::after,
+#smooth-edges-after-b::after  {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 7px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#smooth-edges-before::before {
+    top: -7px;
+    margin-right: 7px;
+    background: linear-gradient(to top, rgb(16 16 16 / 75%), transparent);
+}
+
+#smooth-edges-after::after {
+    bottom: -7px;
+    margin-right: 7px;
+    background: linear-gradient(to bottom, rgb(16 16 16 / 9%), transparent);
+}
+
+#smooth-edges-after-b::after {
+    border-top: 1px solid rgb(39 39 42);
+    bottom: -7px;
+    margin-right: 7px;
+    background: linear-gradient(to bottom, rgb(16 16 16 / 75%), transparent);
+}
+
+@layer base {
+  :root {
+        --radius: 0.5rem;
+    }
+}
