@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { API, ManagerLineup } from "@/api/http";
 import ManagerLineupSkeleton from "@/components/02_templates/Skeletons/ManagerLineupSkeleton";
 import { setManagerDetail } from "@/store/live-slice";
-import useDisable from "@/hooks/useDisable";
 import { liveRefetchInterval } from "@/query/queryClient";
 
 /**
@@ -19,7 +18,6 @@ import { liveRefetchInterval } from "@/query/queryClient";
 function LiveManagerLineupPage({ userId }) {
     let content;
     const dispatch = useDispatch();
-    const disable = useDisable();
     const { leagueId, managerId: paramManagerId } = useParams();
     const token = useSelector((state) => state.auth.token);
     const matchdayId = useSelector((state) => state.matchday.day);
@@ -44,12 +42,7 @@ function LiveManagerLineupPage({ userId }) {
         gcTime: 0,
         refetchInterval: liveRefetchInterval,
         refetchIntervalInBackground: false,
-        throwOnError: (error) => {
-            if (error?.status && error.status === 418) {
-                disable(leagueId);
-                return;
-            }
-        },
+        throwOnError: true,
     });
 
     if (isPending) {

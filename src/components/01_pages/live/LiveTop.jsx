@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { API, LiveTop25 } from "@/api/http";
 import { setTopPlayers } from "@/store/live-slice";
 import LiveTopLayout from "@/components/02_templates/LiveTopLayout";
-import useDisable from "@/hooks/useDisable";
 import { liveRefetchInterval } from "@/query/queryClient";
 
 /**
@@ -18,7 +17,6 @@ import { liveRefetchInterval } from "@/query/queryClient";
 function LiveTopPage() {
     let content;
     const dispatch = useDispatch();
-    const disable = useDisable();
     const { leagueId } = useParams();
     const token = useSelector((state) => state.auth.token);
     const matchdayId = useSelector((state) => state.matchday.day);
@@ -40,12 +38,7 @@ function LiveTopPage() {
         gcTime: 0,
         refetchInterval: liveRefetchInterval,
         refetchIntervalInBackground: false,
-        throwOnError: (error) => {
-            if (error?.status && error.status === 418) {
-                disable(leagueId);
-                return;
-            }
-        },
+        throwOnError: true,
     });
 
     if (isPending) {

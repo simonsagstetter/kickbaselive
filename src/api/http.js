@@ -226,7 +226,7 @@ export async function Managers({ requestConfig, leagueId, matchdayId, isLive = f
                     dayNumber: matchdayId,
                 });
                 return liveData.p;
-            }, 0);
+            });
 
             const points = await Promise.all(innerPromises);
 
@@ -278,7 +278,7 @@ export async function ManagerLineup({
                     dayNumber: matchdayId,
                 });
                 return performance?.p ?? 0;
-            }, 0);
+            });
 
             const pointsArr = await Promise.all(innerPromises);
             const points = pointsArr.reduce((totalPoints, playerPoints) => totalPoints + playerPoints, 0);

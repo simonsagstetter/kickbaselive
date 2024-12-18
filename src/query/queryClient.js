@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createIDBPersister } from "./persister";
 
-export const BUSTER = "KBLIVE_TQUERY_1_0_0";
+export const BUSTER = "KBLIVE_TQUERY_1_0_1";
 const CACHE_KEY = "KBLIVE_TQUERY";
 
 /**

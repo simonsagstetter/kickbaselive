@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import ManagerList from "@/components/03_organisms/Manager/ManagerList";
 import { ManagerListSkeleton } from "@/components/04_molecules/Skeletons/skeletons";
 import { setManagers } from "@/store/live-slice";
-import useDisable from "@/hooks/useDisable";
 import { liveRefetchInterval } from "@/query/queryClient";
 
 /**
@@ -16,7 +15,6 @@ import { liveRefetchInterval } from "@/query/queryClient";
 function LiveManagerPage() {
     let content;
     const dispatch = useDispatch();
-    const disable = useDisable();
     const { leagueId, managerId } = useParams();
     const token = useSelector((state) => state.auth.token);
     const matchdayId = useSelector((state) => state.matchday.day);
@@ -38,12 +36,7 @@ function LiveManagerPage() {
         gcTime: 0,
         refetchInterval: liveRefetchInterval,
         refetchIntervalInBackground: false,
-        throwOnError: (error) => {
-            if (error?.status && error.status === 418) {
-                disable(leagueId);
-                return;
-            }
-        },
+        throwOnError: true,
         enabled: !managerId,
     });
 

@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { API, Standing } from "@/api/http";
 import LiveStandingLayout from "@/components/02_templates/LiveStandingLayout";
 import { setStandings } from "@/store/live-slice";
-import useDisable from "@/hooks/useDisable";
 import { liveRefetchInterval } from "@/query/queryClient";
 
 /**
@@ -18,8 +17,7 @@ import { liveRefetchInterval } from "@/query/queryClient";
 function LiveStandingsPage() {
     let content;
     const dispatch = useDispatch();
-    const disable = useDisable();
-    const { leagueId, matchId, teamId } = useParams();
+    const { matchId, teamId } = useParams();
     const token = useSelector((state) => state.auth.token);
     const { competitionId } = useSelector((state) => state.league);
     const matchdayId = useSelector((state) => state.matchday.day);
@@ -35,12 +33,7 @@ function LiveStandingsPage() {
         gcTime: 0,
         refetchInterval: liveRefetchInterval,
         refetchIntervalInBackground: false,
-        throwOnError: (error) => {
-            if (error?.status && error.status === 418) {
-                disable(leagueId);
-                return;
-            }
-        },
+        throwOnError: true,
         enabled: !matchId && !teamId,
     });
 
