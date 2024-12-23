@@ -9,9 +9,9 @@ import moment from "moment";
 export const transformEventArray = (e = []) => {
     const gameEvents = { ...GAME_EVENTS };
     if (e !== undefined && e.length !== 0) {
-        gameEvents.assists = e.filter((eventCode) => eventCode === 1).length ?? 0;
+        gameEvents.goals = e.filter((eventCode) => eventCode === 1).length ?? 0;
         gameEvents.nogoal = e.filter((eventCode) => eventCode === 2).length ?? 0;
-        gameEvents.goals = e.filter((eventCode) => eventCode === 3).length ?? 0;
+        gameEvents.assists = e.filter((eventCode) => eventCode === 3).length ?? 0;
         gameEvents.penalty = e.filter((eventCode) => eventCode === 7).length ?? 0;
 
         if (e.includes(6)) {
