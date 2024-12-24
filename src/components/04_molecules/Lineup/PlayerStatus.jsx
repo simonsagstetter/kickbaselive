@@ -39,6 +39,10 @@ function PlayerStatus({ status }) {
             content = <RehabIcon />;
             break;
 
+        case 8:
+            content = <RedCardIcon forBadge />;
+            break;
+
         case 16:
             content = <RedCardIcon forBadge />;
             break;
