@@ -17,7 +17,10 @@ function MatchdayList({ matchdays, mutateFn, refetchFn, isPendingMutation, pendi
         () =>
             matchdays.reduce(
                 (result, matchday) => {
-                    if (matchday.day === currentDay && !seasonEnd) {
+                    if (
+                        (matchday.day === currentDay && !seasonEnd) ||
+                        (matchday.day === currentDay && seasonEnd && matchday.day === 34)
+                    ) {
                         result.liveMatchday = { ...matchday, live: true };
                     } else {
                         result.pastMatchdays.push(matchday);
@@ -44,7 +47,8 @@ function MatchdayList({ matchdays, mutateFn, refetchFn, isPendingMutation, pendi
             <AnimatePresence mode="wait">
                 {matchdays.length > 0 && (
                     <motion.ul {...list} className={_.matchdaysList}>
-                        {!seasonEnd && liveMatchday !== undefined && (
+                        {((!seasonEnd && liveMatchday !== undefined) ||
+                            (seasonEnd && liveMatchday !== undefined && currentDay == 34)) && (
                             <LivedayListItem
                                 key={liveMatchday.day}
                                 matchday={liveMatchday}
