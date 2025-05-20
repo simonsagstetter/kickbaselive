@@ -16,13 +16,16 @@ import useDisable from "@/hooks/useDisable";
 function MatchdayPage() {
     const navigate = useNavigate();
     const disable = useDisable();
-    const { currentDay, id: leagueId, matchdayEndTime } = useSelector((state) => state.league);
+    const { currentDay, id: leagueId, matchdayEndTime, seasonEnd } = useSelector((state) => state.league);
     const expires = moment(matchdayEndTime).diff(moment());
+
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            disable(leagueId);
-        }, expires);
-        return () => clearTimeout(timeout);
+        if (!seasonEnd) {
+            const timeout = setTimeout(() => {
+                disable(leagueId);
+            }, expires);
+            return () => clearTimeout(timeout);
+        }
     });
 
     const matchday = useSelector((state) => state.matchday);

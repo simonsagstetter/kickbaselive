@@ -13,13 +13,14 @@ const _ = new TailwindStyleSheet(styles);
 
 function MatchdayList({ matchdays, mutateFn, refetchFn, isPendingMutation, pendingItem }) {
     const { currentDay, matchdayStartTime, matchdayEndTime, seasonEnd } = useSelector((state) => state.league);
+    const now = moment();
     const { liveMatchday, pastMatchdays } = useMemo(
         () =>
             matchdays.reduce(
                 (result, matchday) => {
                     if (
                         (matchday.day === currentDay && !seasonEnd) ||
-                        (matchday.day === currentDay && seasonEnd && matchday.day === 34)
+                        (matchday.day === currentDay && seasonEnd && matchday.day === 34 && matchdayEndTime > now)
                     ) {
                         result.liveMatchday = { ...matchday, live: true };
                     } else {
@@ -29,9 +30,9 @@ function MatchdayList({ matchdays, mutateFn, refetchFn, isPendingMutation, pendi
                 },
                 { liveMatchday: undefined, pastMatchdays: [] }
             ),
-        [matchdays, currentDay, seasonEnd]
+        [matchdays, currentDay, seasonEnd, matchdayEndTime, now]
     );
-    const now = moment();
+
     const liveIsAvailable = moment(matchdayStartTime) < now && moment(matchdayEndTime) > now;
 
     return (
@@ -48,7 +49,7 @@ function MatchdayList({ matchdays, mutateFn, refetchFn, isPendingMutation, pendi
                 {matchdays.length > 0 && (
                     <motion.ul {...list} className={_.matchdaysList}>
                         {((!seasonEnd && liveMatchday !== undefined) ||
-                            (seasonEnd && liveMatchday !== undefined && currentDay == 34)) && (
+                            (seasonEnd && liveMatchday !== undefined && currentDay == 34 && matchdayEndTime > now)) && (
                             <LivedayListItem
                                 key={liveMatchday.day}
                                 matchday={liveMatchday}
