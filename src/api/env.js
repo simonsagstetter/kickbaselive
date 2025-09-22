@@ -5,8 +5,12 @@ export default class Kickbase {
     /** @private @constant {string} The base URL for the Kickbase API. */
     static #API_URL = "https://api.kickbase.com/";
 
-    /** @private @constant {string} The base URL for the Kickbase CDN. */
-    static #CDN_URL = "https://cdn.kickbase.com/";
+    // DEPRECATED
+    // /** @private @constant {string} The base URL for the Kickbase CDN. */
+    // static #CDN_URL = "https://cdn.kickbase.com/";
+
+    /** @private @constant {string} The base URL for the new Kickbase CDN. */
+    static #CDN_URLV2 = "https://kickbase.b-cdn.net/";
 
     /** @private @constant {string} The API version to use. */
     static #API_VERSION = "v4";
@@ -49,10 +53,19 @@ export default class Kickbase {
 
     /**
      * Get the base URL for the CDN, optionally including the version.
+     * @returns {string} The full CDN base URL.
+     */
+    static getCDNUrl() {
+        return this.#CDN_URLV2;
+    }
+
+    // DEPRECATED
+    /**
+     * Get the base URL for the CDN, optionally including the version.
      * @param {boolean} [includeVersion=false] - Whether to include the API version in the URL.
      * @returns {string} The full CDN base URL.
      */
-    static getCDNBaseURL(includeVersion = false) {
-        return `${this.#CDN_URL}${includeVersion ? this.#API_VERSION + "/" : ""}`;
-    }
+    // static getCDNBaseURL(includeVersion = false) {
+    //     return `${this.#CDN_URL}${includeVersion ? this.#API_VERSION + "/" : ""}`;
+    // }
 }

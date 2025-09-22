@@ -1,4 +1,7 @@
-import Kickbase from "./env";
+/** ### !!! DEPRECATED !!! ### **/
+// use new cdn with Kickbase.getCDNUrl() + relative Url from endpoints
+
+// import Kickbase from "./env";
 
 /** FILES API .../files/.... */
 
@@ -10,9 +13,9 @@ import Kickbase from "./env";
  * @param {string} leagueId - The unique identifier for the league.
  * @returns {string} The complete URL to access the league image.
  */
-export const getLeagueImage = (leagueId) => {
-    return `${Kickbase.getCDNBaseURL(true)}files/leagues/${leagueId}`;
-};
+// export const getLeagueImage = (leagueId) => {
+//     return `${Kickbase.getCDNBaseURL(true)}files/leagues/${leagueId}`;
+// };
 
 /** v1 ENDPOINTS */
 
@@ -23,9 +26,9 @@ export const getLeagueImage = (leagueId) => {
  * @param {string} [imageType="0"] - The type of image to retrieve. Defaults to "0".
  * @returns {string} The full URL to the user's image.
  */
-export const getUserImage = (userId, imageType = "0") => {
-    return `${Kickbase.getCDNBaseURL()}files/users/${userId}/${imageType}`;
-};
+// export const getUserImage = (userId, imageType = "0") => {
+//     return `${Kickbase.getCDNBaseURL()}files/users/${userId}/${imageType}`;
+// };
 
 /**
  * Retrieves the URL for a player's image from the CDN.
@@ -34,9 +37,9 @@ export const getUserImage = (userId, imageType = "0") => {
  * @param {string} [imageType="1"] - The type of image to retrieve. Defaults to "1".
  * @returns {string} The complete URL to the player's image.
  */
-export const getPlayerImage = (playerId, imageType = "1") => {
-    return `${Kickbase.getCDNBaseURL()}files/players/${playerId}/${imageType}`;
-};
+// export const getPlayerImage = (playerId, imageType = "1") => {
+//     return `${Kickbase.getCDNBaseURL()}files/players/${playerId}/${imageType}`;
+// };
 
 /**
  * Generates the URL for a team's image based on the team ID and image type.
@@ -45,6 +48,6 @@ export const getPlayerImage = (playerId, imageType = "1") => {
  * @param {string} [imageType="0"] - The type of image to retrieve. Defaults to "0".
  * @returns {string} The complete URL to the team's image on the CDN.
  */
-export const getTeamImage = (teamId, imageType = "0") => {
-    return `${Kickbase.getCDNBaseURL()}files/teams/${teamId}/${imageType}`;
-};
+// export const getTeamImage = (teamId, imageType = "0") => {
+//     return `${Kickbase.getCDNBaseURL()}files/teams/${teamId}/${imageType}`;
+// };

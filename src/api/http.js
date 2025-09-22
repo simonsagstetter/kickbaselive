@@ -173,6 +173,7 @@ export async function Matchdays({ requestConfig, leagueId, user, currentDay }) {
         promises.push(
             (async () => {
                 const matchday = await getRanking({ requestConfig, leagueId, dayNumber });
+                console.log(matchday);
                 const manager = matchday.us.find((manager) => manager.i === user.id);
                 return {
                     day: matchday.day,

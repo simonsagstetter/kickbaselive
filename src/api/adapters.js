@@ -1,7 +1,7 @@
-import { getPlayerImage, getTeamImage, getUserImage } from "./files";
 import { toCurrency, toEarnings, getColor } from "@/utils/formatters";
 import { playerPositions as positions, playerStatus } from "./constants";
 import { transformDayStatus, transformEventArray, transformMatchStatus, transformStartTime } from "./transformers";
+import Kickbase from "./env";
 
 /**
  * Adapter class for transforming data.
@@ -132,7 +132,9 @@ export class MatchAdapter extends BaseAdapter {
             day: matchday,
             mi: matchId,
             t1: team1Id,
+            t1im: team1Image,
             t2: team2Id,
+            t2im: team2image,
             t1sy: team1Sym,
             t2sy: team2Sym,
             t1n: team1Name,
@@ -152,14 +154,14 @@ export class MatchAdapter extends BaseAdapter {
                 name: team1Name,
                 abbreviation: team1Sym,
                 goals: team1goals,
-                logo: getTeamImage(team1Id),
+                logo: Kickbase.getCDNUrl() + team1Image,
             },
             team2: {
                 id: team2Id,
                 name: team2Name,
                 abbreviation: team2Sym,
                 goals: team2goals,
-                logo: getTeamImage(team2Id),
+                logo: Kickbase.getCDNUrl() + team2image,
             },
         };
     }
@@ -183,6 +185,7 @@ export class ManagerAdapter extends BaseAdapter {
             mdp: dayPoints,
             mdpl: dayPlacement,
             lp: lineupPlayers,
+            uim: userImage,
         } = this.value;
 
         return {
@@ -192,7 +195,7 @@ export class ManagerAdapter extends BaseAdapter {
             nextDay,
             season,
             lineupPlayers,
-            userAvatar: getUserImage(userId),
+            userAvatar: Kickbase.getCDNUrl() + userImage,
             dayPoints: dayPoints || 0,
             dayPlacement: dayPlacement || 0,
             dayEarnings: toEarnings(dayPoints || 0),
@@ -217,6 +220,7 @@ export class PlayerAdapter extends BaseAdapter {
             md: matchDate,
             mst: matchStatus,
         } = this.value.points;
+
         const {
             i: playerId,
             tid: teamId,
@@ -225,6 +229,8 @@ export class PlayerAdapter extends BaseAdapter {
             ln: lastName,
             shn: number,
             st: status,
+            pim: playerImage,
+            tim: teamImage,
         } = this.value.profile;
         const dayPointsColorObject = getColor(dayPoints);
         const eventArray = this.value.points?.k ?? [];
@@ -238,8 +244,8 @@ export class PlayerAdapter extends BaseAdapter {
             number,
             position,
             positionText: positions.get(position) || "RES",
-            playerCover: getPlayerImage(playerId),
-            teamCover: getTeamImage(teamId),
+            playerCover: Kickbase.getCDNUrl() + playerImage,
+            teamCover: Kickbase.getCDNUrl() + teamImage,
             status,
             statusText: playerStatus.get(status) || "Fit",
             dayPoints: dayPoints || 0,
@@ -275,7 +281,9 @@ export class TeamAdapter extends BaseAdapter {
             cp: tablePoints,
             gd: goalDifference,
             sp: scorePoints,
+            tim: teamImage,
         } = this.value;
+
         return {
             teamId,
             teamName,
@@ -286,7 +294,7 @@ export class TeamAdapter extends BaseAdapter {
             scorePoints,
             earnings: toEarnings(scorePoints),
             abbreviation: abbreviations[teamId] || "",
-            teamLogo: getTeamImage(teamId),
+            teamLogo: Kickbase.getCDNUrl() + teamImage,
         };
     }
 }
@@ -311,7 +319,10 @@ export class TeamPlayerAdapter extends BaseAdapter {
             stxt: statusText,
             pos: position,
             mv: marketValue,
+            pim: playerImage,
+            tim: teamImage,
         } = this.value;
+
         return {
             playerId,
             teamId,
@@ -320,8 +331,8 @@ export class TeamPlayerAdapter extends BaseAdapter {
             number: this.value.shn,
             position,
             positionText: positions.get(position) || "RES",
-            playerCover: getPlayerImage(playerId),
-            teamCover: getTeamImage(teamId),
+            playerCover: Kickbase.getCDNUrl() + playerImage,
+            teamCover: Kickbase.getCDNUrl() + teamImage,
             status,
             statusText,
             marketValue,
