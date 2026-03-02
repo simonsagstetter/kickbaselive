@@ -2,6 +2,7 @@ import { bool, number, object } from "prop-types";
 import { AwaitImage } from "@/components/05_atoms/Image";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./UserNavInfo.Styles";
+import Kickbase from "@/api/env.js";
 
 const _ = new TailwindStyleSheet(styles);
 
@@ -18,7 +19,7 @@ function UserNavInfo({ user, league, hasLeague, hasMatchday, day, isLive }) {
             </div>
             {hasLeague && (
                 <div className={leagueAvatarCssClasses}>
-                    <AwaitImage src={avatar} alt={leagueName} className={_.cover} fallbackClasses={_.cover} />
+                    <AwaitImage src={`${Kickbase.getCDNUrl() + avatar}`} alt={leagueName} className={_.cover} fallbackClasses={_.cover} />
                 </div>
             )}
             <div className={_.infoWrapper}>
