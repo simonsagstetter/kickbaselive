@@ -33,7 +33,6 @@ webapp.code-workspace
 
 # Firebase
 .firebase*
-firebase.json
 public/index.html
 
 # PWA
