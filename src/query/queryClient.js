@@ -4,6 +4,8 @@ import { createIDBPersister } from "./persister";
 export const BUSTER = "KBLIVE_TQUERY_1_0_6";
 const CACHE_KEY = "KBLIVE_TQUERY";
 
+let client = null;
+
 /**
  * Query Client Object
  * @constant
@@ -18,6 +20,20 @@ export const queryClient = new QueryClient({
         },
     },
 });
+
+export const getQueryClient = () => {
+    if(!client){
+        client = new QueryClient({
+            defaultOptions: {
+                queries: {
+                    staleTime: 1000 * 60 * 60,
+                    gcTime: 1000 * 60 * 60 * 24,
+                },
+            },
+        })
+    }
+    return client;
+}
 
 export const indexDBPersister = createIDBPersister(CACHE_KEY);
 export const liveRefetchInterval = 10000;
