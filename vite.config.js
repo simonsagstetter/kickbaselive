@@ -1,12 +1,10 @@
-import path from "path";
+import path from "node:path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import MillionLint from "@million/lint";
 
 export default defineConfig({
     plugins: [
-        MillionLint.vite(),
         react(),
         VitePWA({
             registerType: "autoUpdate",
