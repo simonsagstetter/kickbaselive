@@ -13,7 +13,7 @@ function HeaderTeam({ placement = 0, teamLogo }) {
                 <span className={_.placement}># {placement}</span>
             </div>
             <div className={_.imageWrapper}>
-                <AwaitImage src={teamLogo} fallbackClasses={_.imageFallback} />
+                <AwaitImage src={teamLogo} fallbackClasses={_.imageFallback} className={_.image}/>
             </div>
         </div>
     );
