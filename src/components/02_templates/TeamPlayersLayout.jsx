@@ -12,6 +12,7 @@ const _ = new TailwindStyleSheet({
 
 function TeamPlayersLayout({ team, players }) {
     const { scorePoints, teamName, teamLogo, placement } = team;
+    console.log(team)
     const header = {
         title: scorePoints,
         subtitle: teamName,

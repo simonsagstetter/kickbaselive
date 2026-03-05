@@ -29,6 +29,9 @@ const styles = {
             },
         },
     },
+    image: {
+        layout: "justify-self-stretch",
+    },
     imageFallback: {
         sizing: "h-36 w-36",
         layout: "block",
