@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import ListItemLoading from "@/components/04_molecules/UI/ListItemLoading";
 import LeagueHeader from "@/components/04_molecules/League/LeagueHeader";
 import { motion } from "framer-motion";
-import { listItem, listItemHover } from "@/motion/motionConfig";
+import { listItem,listItemHover } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./LeagueListItem.Styles";
 import LeagueDetails from "@/components/04_molecules/League/LeagueDetails";

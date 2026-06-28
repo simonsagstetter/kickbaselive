@@ -1,8 +1,8 @@
-import { Outlet, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Outlet,useParams } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
 import StandingPageSkeleton from "@/components/02_templates/Skeletons/StandingPageSkeleton";
 import { useQuery } from "@tanstack/react-query";
-import { API, Standing } from "@/api/http";
+import { API,Standing } from "@/api/http";
 import LiveStandingLayout from "@/components/02_templates/LiveStandingLayout";
 import { setStandings } from "@/store/live-slice";
 import { liveRefetchInterval } from "@/query/queryClient";

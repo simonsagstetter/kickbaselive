@@ -1,4 +1,4 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import MatchList from "../03_organisms/Standing/MatchList";
 import Header from "../03_organisms/Header/Header";

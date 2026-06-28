@@ -1,4 +1,4 @@
-import { bool, number, object } from "prop-types";
+import { bool,number,object } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./PlayerDetail.Styles";
 import { AwaitImage } from "@/components/05_atoms/Image";

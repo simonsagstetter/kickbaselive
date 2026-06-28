@@ -1,4 +1,4 @@
-import { string, number } from "prop-types";
+import { number,string } from "prop-types";
 import { AwaitImage } from "@/components/05_atoms/Image";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchdayHeader.Styles";

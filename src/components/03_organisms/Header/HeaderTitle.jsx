@@ -1,6 +1,6 @@
-import { string, bool, any } from "prop-types";
+import { any,bool,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence,motion } from "framer-motion";
 import { popValue } from "@/motion/motionConfig";
 import styles from "./HeaderTitle.Styles";
 

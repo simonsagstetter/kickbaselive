@@ -1,4 +1,4 @@
-import { number, object } from "prop-types";
+import { number,object } from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { startTransition } from "react";
 import { motion } from "framer-motion";
@@ -6,7 +6,7 @@ import TeamCover from "@/components/04_molecules/Team/TeamCover";
 import TeamDetail from "@/components/04_molecules/Team/TeamDetail";
 import TeamStats from "@/components/04_molecules/Team/TeamStats";
 import TeamPoints from "@/components/04_molecules/Team/TeamPoints";
-import { listItem, listItemHover } from "@/motion/motionConfig";
+import { listItem,listItemHover } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./TeamsListItem.Styles";
 

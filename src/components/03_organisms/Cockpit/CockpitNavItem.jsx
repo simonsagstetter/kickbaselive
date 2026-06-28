@@ -1,5 +1,5 @@
-import { node, string } from "prop-types";
-import { Link, useLocation, useResolvedPath } from "react-router-dom";
+import { node,string } from "prop-types";
+import { Link,useLocation,useResolvedPath } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./CockpitNavItem.Styles";

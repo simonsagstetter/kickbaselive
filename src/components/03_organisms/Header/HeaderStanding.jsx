@@ -1,5 +1,5 @@
 import { AwaitImage } from "@/components/05_atoms/Image";
-import { bool, string } from "prop-types";
+import { bool,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./HeaderStanding.Styles";
 

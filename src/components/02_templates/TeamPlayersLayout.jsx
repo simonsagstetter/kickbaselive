@@ -1,7 +1,7 @@
 import { TailwindStyleSheet } from "@/utils/tw";
 import TeamPlayerList from "../03_organisms/TeamPlayers/TeamPlayerList";
 import Header from "../03_organisms/Header/Header";
-import { array, object } from "prop-types";
+import { array,object } from "prop-types";
 
 const _ = new TailwindStyleSheet({
     stickyPosClass: {

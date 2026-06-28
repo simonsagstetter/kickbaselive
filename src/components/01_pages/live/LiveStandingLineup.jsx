@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import StandingLineupSkeleton from "@/components/02_templates/Skeletons/StandingLineupSkeleton";
 import LiveStandingLineupLayout from "@/components/02_templates/LiveStandingLineupLayout";
 import { useQuery } from "@tanstack/react-query";
-import { API, StandingLineup } from "@/api/http";
-import { useDispatch, useSelector } from "react-redux";
+import { API,StandingLineup } from "@/api/http";
+import { useDispatch,useSelector } from "react-redux";
 import { setStandingDetail } from "@/store/live-slice";
 import { liveRefetchInterval } from "@/query/queryClient";
 

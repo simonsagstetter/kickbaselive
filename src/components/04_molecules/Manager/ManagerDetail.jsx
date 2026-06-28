@@ -1,4 +1,4 @@
-import { bool, string, number } from "prop-types";
+import { bool,number,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 
 const _ = new TailwindStyleSheet({

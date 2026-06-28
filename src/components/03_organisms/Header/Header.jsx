@@ -1,4 +1,4 @@
-import { string, node } from "prop-types";
+import { node,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import HeaderTitle from "./HeaderTitle";
 import HeaderTeam from "./HeaderTeam";

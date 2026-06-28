@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { list } from "@/motion/motionConfig";
 import LeagueListItem from "./LeagueListItem";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence,motion } from "framer-motion";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./LeagueList.Styles";
 

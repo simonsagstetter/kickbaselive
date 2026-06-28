@@ -3,7 +3,7 @@ import TopLayout from "@/components/02_templates/TopLayout";
 import TopPageSkeleton from "@/components/02_templates/Skeletons/TopPageSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import { useSelector } from "react-redux";
-import { API, Top25 } from "@/api/http";
+import { API,Top25 } from "@/api/http";
 
 /**
  * TopPage component fetches and displays the top players for a given competition and matchday.

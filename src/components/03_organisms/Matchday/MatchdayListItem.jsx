@@ -1,9 +1,9 @@
-import { object, func, bool } from "prop-types";
+import { bool,func,object } from "prop-types";
 import MatchdayHeader from "@/components/04_molecules/Matchday/MatchdayHeader";
 import MatchdayDetails from "@/components/04_molecules/Matchday/MatchdayDetails";
 import ListItemLoading from "@/components/04_molecules/UI/ListItemLoading";
 import { motion } from "framer-motion";
-import { listItem, listItemHover } from "@/motion/motionConfig";
+import { listItem,listItemHover } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchdayListItem.Styles";
 import MatchdayPoints from "@/components/04_molecules/Matchday/MatchdayPoints";

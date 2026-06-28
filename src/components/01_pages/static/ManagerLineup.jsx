@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import { API, ManagerLineup } from "@/api/http";
+import { API,ManagerLineup } from "@/api/http";
 import LineupLayout from "@/components/02_templates/LineupLayout";
 import ManagerLineupSkeleton from "@/components/02_templates/Skeletons/ManagerLineupSkeleton";
 

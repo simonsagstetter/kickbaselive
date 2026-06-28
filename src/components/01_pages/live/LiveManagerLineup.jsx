@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import LiveLineupLayout from "@/components/02_templates/LiveLineupLayout";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import { API, ManagerLineup } from "@/api/http";
+import { API,ManagerLineup } from "@/api/http";
 import ManagerLineupSkeleton from "@/components/02_templates/Skeletons/ManagerLineupSkeleton";
 import { setManagerDetail } from "@/store/live-slice";
 import { liveRefetchInterval } from "@/query/queryClient";

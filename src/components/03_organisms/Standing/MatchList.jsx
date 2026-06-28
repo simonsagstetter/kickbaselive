@@ -1,7 +1,7 @@
 import { array } from "prop-types";
 import MatchListItem from "./MatchListItem";
 import { motion } from "framer-motion";
-import { list, listItem } from "@/motion/motionConfig";
+import { list,listItem } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchList.Styles";
 

@@ -2,10 +2,10 @@
 /* deactivated because this is a false positiv */
 
 // React Core
-import { lazy, Suspense } from "react";
+import { lazy,Suspense } from "react";
 
 // React Router
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter,Navigate } from "react-router-dom";
 
 // Middleware
 import LoginRequiredMiddleware from "./middleware/LoginRequiredMiddleware";
@@ -22,7 +22,7 @@ import CockpitLayout from "../components/01_pages/static/CockpitLayout";
 import LiveLayout from "../components/01_pages/live/LiveLayout";
 
 // Components
-import LoginPage, { loginAction, logoutAction } from "../components/01_pages/Login";
+import LoginPage,{ loginAction,logoutAction } from "../components/01_pages/Login";
 
 // Leagues Selector
 import LeaguePage from "../components/01_pages/League";

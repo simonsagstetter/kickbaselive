@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import TopPageSkeleton from "@/components/02_templates/Skeletons/TopPageSkeleton";
 import { useQuery } from "@tanstack/react-query";
-import { useDispatch, useSelector } from "react-redux";
-import { API, LiveTop25 } from "@/api/http";
+import { useDispatch,useSelector } from "react-redux";
+import { API,LiveTop25 } from "@/api/http";
 import { setTopPlayers } from "@/store/live-slice";
 import LiveTopLayout from "@/components/02_templates/LiveTopLayout";
 import { liveRefetchInterval } from "@/query/queryClient";

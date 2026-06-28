@@ -4,10 +4,10 @@ import { zerosLast } from "@/utils/array";
 import { getMatchDetails } from "./matches";
 import {
     getLeagueSelection,
+    getPlayerPerformance as getLeaguePlayerPerformance,
+    getPlayerProfile as getLeaguePlayerProfile,
     getRanking,
     getUserLineup,
-    getPlayerProfile as getLeaguePlayerProfile,
-    getPlayerPerformance as getLeaguePlayerPerformance,
 } from "./leagues";
 import {
     Adapter,
@@ -21,13 +21,13 @@ import {
 } from "./adapters";
 import {
     getMatchdays,
+    getPlayerEvents,
+    getPlayerPerformance as getCompetitionPlayerPerformance,
+    getPlayerProfile as getCompetitionPlayerProfile,
     getTeamLineup,
     getTeamProfile,
-    getPlayerProfile as getCompetitionPlayerProfile,
-    getPlayerPerformance as getCompetitionPlayerPerformance,
     getTeams,
     getTopPlayers,
-    getPlayerEvents,
 } from "./competitions";
 
 /**

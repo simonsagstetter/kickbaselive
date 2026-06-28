@@ -1,8 +1,8 @@
-import { bool, string } from "prop-types";
+import { bool,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import { Link } from "react-router-dom";
 import { AwaitImage } from "@/components/05_atoms/Image";
-import { Fragment, Children } from "react";
+import { Children,Fragment } from "react";
 import styles from "./Opponent.Styles";
 
 const _ = new TailwindStyleSheet(styles);
