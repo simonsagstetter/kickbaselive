@@ -1,7 +1,7 @@
 import { startTransition } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
-import { queryClient } from "@/query/queryClient";
+import { getQueryClient } from "@/query/queryClient";
 import { removeLiveData } from "@/store/live-slice";
 import { removeMatchday } from "@/store/matchday-slice";
 import { updateLeague } from "@/store/league-slice";
@@ -25,9 +25,9 @@ function useDisable() {
      */
     async function disable(leagueId) {
         await dispatch(removeLiveData()).unwrap();
-        queryClient.removeQueries({ queryKey: ["live"], exact: false });
+        getQueryClient().removeQueries({ queryKey: ["live"], exact: false });
         await dispatch(removeMatchday()).unwrap();
-        queryClient.removeQueries({ queryKey: ["matchday"], exact: false });
+        getQueryClient().removeQueries({ queryKey: ["matchday"], exact: false });
         await dispatch(updateLeague({ leagueId, token, competitionId })).unwrap();
         startTransition(() => {
             navigate(`/leagues/${leagueId}/matchdays`);

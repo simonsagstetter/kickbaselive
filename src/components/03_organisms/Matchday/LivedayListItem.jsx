@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Countdown from "../UI/Countdown";
 import MatchdayHeader from "@/components/04_molecules/Matchday/MatchdayHeader";
 import ListItemLoading from "@/components/04_molecules/UI/ListItemLoading";
-import { queryClient } from "@/query/queryClient";
+import { getQueryClient } from "@/query/queryClient";
 import { motion } from "framer-motion";
 import { listItemHover,listItemNegative } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
@@ -29,7 +29,7 @@ function LivedayListItem({ matchday, liveIsAvailable, mutate, refetch, isPending
     }
 
     const invalidateMatchdayData = useCallback(async () => {
-        await queryClient.invalidateQueries({
+        await getQueryClient().invalidateQueries({
             queryKey: ["matchday", userId, leaguedId],
             refetchType: "all",
         });
