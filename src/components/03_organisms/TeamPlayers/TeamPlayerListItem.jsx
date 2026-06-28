@@ -5,7 +5,7 @@ import PlayerPoints from "@/components/04_molecules/Lineup/PlayerPoints";
 import PlayerDetail from "@/components/04_molecules/Lineup/PlayerDetail";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./TeamPlayerListItem.Styles";
-import { number, object } from "prop-types";
+import { number,object } from "prop-types";
 
 const _ = new TailwindStyleSheet(styles);
 

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import { API, StandingLineup } from "@/api/http";
+import { API,StandingLineup } from "@/api/http";
 import StandingLineupLayout from "@/components/02_templates/StandingLineupLayout";
 import StandingLineupSkeleton from "@/components/02_templates/Skeletons/StandingLineupSkeleton";
 

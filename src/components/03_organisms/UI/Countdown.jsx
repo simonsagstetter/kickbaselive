@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { string, number, func } from "prop-types";
+import { useEffect,useState } from "react";
+import { func,number,string } from "prop-types";
 import moment from "moment";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./Countdown.Styles";

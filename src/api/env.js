@@ -58,14 +58,4 @@ export default class Kickbase {
     static getCDNUrl() {
         return this.#CDN_URLV2;
     }
-
-    // DEPRECATED
-    /**
-     * Get the base URL for the CDN, optionally including the version.
-     * @param {boolean} [includeVersion=false] - Whether to include the API version in the URL.
-     * @returns {string} The full CDN base URL.
-     */
-    // static getCDNBaseURL(includeVersion = false) {
-    //     return `${this.#CDN_URL}${includeVersion ? this.#API_VERSION + "/" : ""}`;
-    // }
 }

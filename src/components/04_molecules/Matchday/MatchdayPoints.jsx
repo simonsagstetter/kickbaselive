@@ -1,7 +1,7 @@
-import { getDayPointColor, toNumber } from "@/utils/formatters";
-import { bool, number } from "prop-types";
+import { getDayPointColor,toNumber } from "@/utils/formatters";
+import { bool,number } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
-import { Fragment, memo } from "react";
+import { Fragment,memo } from "react";
 import styles from "./MatchdayPoints.Styles";
 
 const _ = new TailwindStyleSheet(styles);

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 
 const storedAuthentication = JSON.parse(localStorage.getItem("auth")) || {};
 

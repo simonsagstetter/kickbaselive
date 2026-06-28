@@ -1,4 +1,4 @@
-import { bool, number, object } from "prop-types";
+import { bool,number,object } from "prop-types";
 import { AwaitImage } from "@/components/05_atoms/Image";
 import PlayerStatus from "./PlayerStatus";
 import PlayerBadge from "@/components/05_atoms/Lineup/PlayerBadge";

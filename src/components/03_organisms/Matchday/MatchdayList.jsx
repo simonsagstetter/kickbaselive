@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import MatchdayListItem from "./MatchdayListItem";
 import LivedayListItem from "./LivedayListItem";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence,motion } from "framer-motion";
 import { list } from "@/motion/motionConfig";
 import moment from "moment";
 import { TailwindStyleSheet } from "@/utils/tw";

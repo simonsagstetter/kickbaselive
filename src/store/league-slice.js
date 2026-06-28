@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API, Matchtimes, Season, TeamAbbreviations } from "../api/http";
+import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
+import { API,Matchtimes,Season,TeamAbbreviations } from "../api/http";
 
 const storedLeague = JSON.parse(localStorage.getItem("league")) || {};
 

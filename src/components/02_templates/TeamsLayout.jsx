@@ -1,4 +1,4 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,useParams } from "react-router-dom";
 import TeamsList from "../03_organisms/Teams/TeamsList";
 import { TailwindStyleSheet } from "@/utils/tw";
 import Header from "../03_organisms/Header/Header";

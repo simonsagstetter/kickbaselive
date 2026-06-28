@@ -1,4 +1,4 @@
-import { string, bool } from "prop-types";
+import { bool,string } from "prop-types";
 import { IoIosCheckmark } from "react-icons/io";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./FormInput.Styles";

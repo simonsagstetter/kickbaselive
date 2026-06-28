@@ -1,4 +1,4 @@
-import { bool, string } from "prop-types";
+import { bool,string } from "prop-types";
 import { AwaitImage } from "@/components/05_atoms/Image";
 import { TailwindStyleSheet } from "@/utils/tw";
 

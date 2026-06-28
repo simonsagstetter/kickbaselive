@@ -1,8 +1,8 @@
-import { bool, object, string } from "prop-types";
+import { bool,object,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./Score.Styles";
-import { AnimatePresence, motion } from "framer-motion";
-import { popValue, touchOrange } from "@/motion/motionConfig";
+import { AnimatePresence,motion } from "framer-motion";
+import { popValue,touchOrange } from "@/motion/motionConfig";
 
 const _ = new TailwindStyleSheet(styles);
 

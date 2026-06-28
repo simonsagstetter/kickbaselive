@@ -1,7 +1,7 @@
 import { list } from "@/motion/motionConfig";
 import PlayerListItem from "./PlayerListItem";
 import { motion } from "framer-motion";
-import { array, bool } from "prop-types";
+import { array,bool } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./PlayerList.Styles";
 

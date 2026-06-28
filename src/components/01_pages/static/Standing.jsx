@@ -1,7 +1,7 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import { API, Standing } from "@/api/http";
+import { API,Standing } from "@/api/http";
 import StandingLayout from "@/components/02_templates/StandingLayout";
 import StandingPageSkeleton from "@/components/02_templates/Skeletons/StandingPageSkeleton";
 

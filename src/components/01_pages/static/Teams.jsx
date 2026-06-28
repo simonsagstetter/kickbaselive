@@ -1,9 +1,9 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,useParams } from "react-router-dom";
 import { number } from "prop-types";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import { queryClient } from "@/query/queryClient";
-import { API, Teams } from "@/api/http";
+import { API,Teams } from "@/api/http";
 import TeamsLayout from "@/components/02_templates/TeamsLayout";
 import TeamPageSkeleton from "@/components/02_templates/Skeletons/TeamPageSkeleton";
 

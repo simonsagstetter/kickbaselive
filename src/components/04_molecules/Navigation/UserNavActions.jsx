@@ -1,8 +1,8 @@
-import { bool, func } from "prop-types";
+import { bool,func } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./UserNavActions.Styles";
-import Button, { ButtonInset } from "@/components/05_atoms/Button";
-import { LogoutIcon, SwitchIcon } from "@/components/05_atoms/Icons";
+import Button,{ ButtonInset } from "@/components/05_atoms/Button";
+import { LogoutIcon,SwitchIcon } from "@/components/05_atoms/Icons";
 
 const _ = new TailwindStyleSheet(styles);
 

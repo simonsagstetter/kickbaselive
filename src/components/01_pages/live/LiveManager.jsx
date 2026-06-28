@@ -1,6 +1,6 @@
-import { Outlet, useParams } from "react-router-dom";
-import { API, Managers } from "@/api/http";
-import { useDispatch, useSelector } from "react-redux";
+import { Outlet,useParams } from "react-router-dom";
+import { API,Managers } from "@/api/http";
+import { useDispatch,useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import ManagerList from "@/components/03_organisms/Manager/ManagerList";
 import { ManagerListSkeleton } from "@/components/04_molecules/Skeletons/skeletons";

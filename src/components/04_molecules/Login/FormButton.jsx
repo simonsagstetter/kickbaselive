@@ -1,5 +1,5 @@
 import Spinner from "@/components/05_atoms/Spinner";
-import { bool, node } from "prop-types";
+import { bool,node } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./FormButton.Styles";
 

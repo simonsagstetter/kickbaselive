@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { queryClient } from "@/query/queryClient";
 import { useQueries } from "@tanstack/react-query";
-import { API, TeamPlayers, Teams } from "@/api/http";
+import { API,TeamPlayers,Teams } from "@/api/http";
 import TeamPlayersSkeleton from "@/components/02_templates/Skeletons/TeamPlayersSkeleton";
 import TeamPlayersLayout from "@/components/02_templates/TeamPlayersLayout";
 

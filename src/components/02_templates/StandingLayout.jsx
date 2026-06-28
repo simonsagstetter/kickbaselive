@@ -1,6 +1,6 @@
 import { array } from "prop-types";
 import MatchList from "../03_organisms/Standing/MatchList";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet,useParams } from "react-router-dom";
 import { TailwindStyleSheet } from "@/utils/tw";
 import Header from "../03_organisms/Header/Header";
 

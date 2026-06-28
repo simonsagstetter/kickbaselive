@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { listItemHover, listItem } from "@/motion/motionConfig";
+import { listItem,listItemHover } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchListItem.Styles";
 import { object } from "prop-types";

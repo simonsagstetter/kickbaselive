@@ -2,7 +2,7 @@ import PlayerList from "../03_organisms/Lineup/PlayerList";
 import { useParams } from "react-router-dom";
 import { TailwindStyleSheet } from "@/utils/tw";
 import Header from "../03_organisms/Header/Header";
-import { object, array } from "prop-types";
+import { array,object } from "prop-types";
 import { useMemo } from "react";
 
 const _ = new TailwindStyleSheet({

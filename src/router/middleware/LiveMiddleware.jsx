@@ -1,6 +1,6 @@
 import { node } from "prop-types";
 import { useSelector } from "react-redux";
-import { useParams, Navigate } from "react-router-dom";
+import { Navigate,useParams } from "react-router-dom";
 
 function LiveMiddleware({ children }) {
     const league = useSelector((state) => state.league);

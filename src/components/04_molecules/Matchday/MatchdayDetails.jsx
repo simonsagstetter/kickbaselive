@@ -1,8 +1,8 @@
 import { toCurrency } from "@/utils/formatters";
-import { string, number, bool } from "prop-types";
+import { bool,number,string } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchdayDetails.Styles";
-import { Fragment, memo } from "react";
+import { Fragment,memo } from "react";
 
 const _ = new TailwindStyleSheet(styles);
 

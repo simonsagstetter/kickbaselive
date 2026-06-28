@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect,useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { logout } from "@/store/auth-slice";
 import { Outlet } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
-import {getQueryClient,queryClient} from "@/query/queryClient";
+import { getQueryClient } from "@/query/queryClient";
 import UserNav from "@/components/03_organisms/Navigation/UserNav";
 import moment from "moment";
 

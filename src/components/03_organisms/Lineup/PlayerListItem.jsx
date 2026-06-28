@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { listItem, liveListItem } from "@/motion/motionConfig";
-import { object, bool, number } from "prop-types";
+import { listItem,liveListItem } from "@/motion/motionConfig";
+import { bool,number,object } from "prop-types";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./PlayerListItem.Styles";
 import PlayerCover from "@/components/04_molecules/Lineup/PlayerCover";

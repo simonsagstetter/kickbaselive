@@ -1,11 +1,11 @@
-import { object, func, bool } from "prop-types";
+import { bool,func,object } from "prop-types";
 import { useSelector } from "react-redux";
 import Countdown from "../UI/Countdown";
 import MatchdayHeader from "@/components/04_molecules/Matchday/MatchdayHeader";
 import ListItemLoading from "@/components/04_molecules/UI/ListItemLoading";
 import { queryClient } from "@/query/queryClient";
 import { motion } from "framer-motion";
-import { listItemNegative, listItemHover } from "@/motion/motionConfig";
+import { listItemHover,listItemNegative } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 import styles from "./MatchdayListItem.Styles";
 import MatchdayDetails from "@/components/04_molecules/Matchday/MatchdayDetails";

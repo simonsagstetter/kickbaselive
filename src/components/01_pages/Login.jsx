@@ -1,13 +1,13 @@
-import { json, redirect } from "react-router-dom";
+import { json,redirect } from "react-router-dom";
 import { authenticate } from "@/api/user";
 import { store } from "@/store/store";
-import { login, logout } from "@/store/auth-slice";
+import { login,logout } from "@/store/auth-slice";
 import { removeLeague } from "@/store/league-slice";
 import { removeMatchday } from "@/store/matchday-slice";
 import { removeLiveData } from "@/store/live-slice";
 import BrandedHeader from "@/components/05_atoms/BrandedHeader";
 import LoginForm from "@/components/03_organisms/Login/LoginForm";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence,motion } from "framer-motion";
 import { TailwindStyleSheet } from "@/utils/tw";
 
 const _ = new TailwindStyleSheet({

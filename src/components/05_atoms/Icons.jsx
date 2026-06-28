@@ -2,11 +2,11 @@ import { bool } from "prop-types";
 import { BiPlusMedical } from "react-icons/bi";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { FaCheck } from "react-icons/fa6";
-import { IoBandageSharp, IoLogOut } from "react-icons/io5";
+import { IoBandageSharp,IoLogOut } from "react-icons/io5";
 import { MdQuestionMark } from "react-icons/md";
-import { PiAirplaneTakeoffFill, PiTrafficConeFill } from "react-icons/pi";
-import { RxCross2, RxDotFilled } from "react-icons/rx";
-import { TbRectangleVerticalFilled, TbSwitchHorizontal } from "react-icons/tb";
+import { PiAirplaneTakeoffFill,PiTrafficConeFill } from "react-icons/pi";
+import { RxCross2,RxDotFilled } from "react-icons/rx";
+import { TbRectangleVerticalFilled,TbSwitchHorizontal } from "react-icons/tb";
 import { VscDash } from "react-icons/vsc";
 
 export function FormationIcon() {

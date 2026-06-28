@@ -1,5 +1,5 @@
-import { string, bool, number } from "prop-types";
-import { motion, AnimatePresence } from "framer-motion";
+import { bool,number,string } from "prop-types";
+import { AnimatePresence,motion } from "framer-motion";
 import { popValue } from "@/motion/motionConfig";
 import { TailwindStyleSheet } from "@/utils/tw";
 
