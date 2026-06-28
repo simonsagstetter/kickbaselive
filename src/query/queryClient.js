@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createIDBPersister } from "./persister";
 
-export const BUSTER = "KBLIVE_TQUERY_1_0_7";
+export const BUSTER = "KBLIVE_TQUERY_1_0_8";
 const CACHE_KEY = "KBLIVE_TQUERY";
 
 let client = null;
@@ -12,15 +12,6 @@ let client = null;
  * @description staleTime 60 min / gcTime 24h
  *
  */
-export const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            staleTime: 1000 * 60 * 60,
-            gcTime: 1000 * 60 * 60 * 24,
-        },
-    },
-});
-
 export const getQueryClient = () => {
     if(!client){
         client = new QueryClient({

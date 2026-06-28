@@ -75,8 +75,8 @@ function ErrorPage() {
     const error = useRouteError();
     const location = useLocation();
     const [errorData, setErrorData] = useState();
-    let title = "Ooopsi! Something went wrong!";
-    let message = "Please try to refresh the page or try again in a few moments.";
+    let title = "Ups! Something went wrong!";
+    let message = "Please refresh the page or try again in a few moments.";
     let status = 500;
 
     useEffect(() => {

@@ -2,7 +2,7 @@ import { Outlet,useParams } from "react-router-dom";
 import { number } from "prop-types";
 import { useSelector } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import { queryClient } from "@/query/queryClient";
+import { getQueryClient } from "@/query/queryClient";
 import { API,Teams } from "@/api/http";
 import TeamsLayout from "@/components/02_templates/TeamsLayout";
 import TeamPageSkeleton from "@/components/02_templates/Skeletons/TeamPageSkeleton";
@@ -24,7 +24,7 @@ function TeamsPage({ staleTime, gcTime }) {
     const token = useSelector((state) => state.auth.token);
     const { competitionId, abbreviations } = useSelector((state) => state.league);
     const matchdayId = useSelector((state) => state.matchday.day);
-    const defaults = queryClient.getQueryDefaults();
+    const defaults = getQueryClient().getQueryDefaults();
     const staleTimeValue = staleTime ? staleTime : defaults.staleTime;
     const gcTimeValue = gcTime ? gcTime : defaults.gcTime;
 

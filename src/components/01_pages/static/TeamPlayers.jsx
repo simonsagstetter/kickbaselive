@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { queryClient } from "@/query/queryClient";
+import { getQueryClient } from "@/query/queryClient";
 import { useQueries } from "@tanstack/react-query";
 import { API,TeamPlayers,Teams } from "@/api/http";
 import TeamPlayersSkeleton from "@/components/02_templates/Skeletons/TeamPlayersSkeleton";
@@ -21,7 +21,7 @@ function TeamPlayersPage({ staleTime, gcTime }) {
     const token = useSelector((state) => state.auth.token);
     const matchdayId = useSelector((state) => state.matchday.day);
     const { competitionId, abbreviations } = useSelector((state) => state.league);
-    const defaults = queryClient.getQueryDefaults();
+    const defaults = getQueryClient().getQueryDefaults();
     const staleTimeValue = staleTime ? staleTime : defaults.staleTime;
     const gcTimeValue = gcTime ? gcTime : defaults.gcTime;
 
