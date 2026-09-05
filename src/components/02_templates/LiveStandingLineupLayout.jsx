@@ -37,7 +37,7 @@ function LiveStandingLineupLayout() {
             : "";
 
     const headerStanding = {
-        score: `${team1.goals}:${team2.goals}`,
+        score: `${team1.goals ?? "-"}:${team2.goals ?? "-"}`,
         team1Won,
         team1Logo: team1.logo,
         team1Name: team1.abbreviation,
