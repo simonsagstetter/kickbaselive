@@ -24,9 +24,8 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Deploy to Firebase
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          firebaseServiceAccount: ${{ secrets.FIREBASE_TOKEN }}
-          projectId: ${{ secrets.PROJECT_ID }}
-          channelId: live
+      - name: Deploy to Netlify
+        uses: npx netlify-cli deploy --prod --dir=dist --no-build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETIFLY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETIFLY_PROJECT_ID }}
