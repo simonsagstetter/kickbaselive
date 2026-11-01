@@ -82,4 +82,13 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    server: {
+        proxy: {
+            "/api/v4": {
+                target: "https://api.kickbase.com/v4",
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api\/v4/, ''),
+            }
+        }
+    }
 });

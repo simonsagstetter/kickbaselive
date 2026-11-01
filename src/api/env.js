@@ -3,7 +3,7 @@
  */
 export default class Kickbase {
     /** @private @constant {string} The base URL for the Kickbase API. */
-    static #API_URL = "https://api.kickbase.com/";
+    static #API_URL = "/api/";
 
     // DEPRECATED
     // /** @private @constant {string} The base URL for the Kickbase CDN. */
@@ -14,20 +14,6 @@ export default class Kickbase {
 
     /** @private @constant {string} The API version to use. */
     static #API_VERSION = "v4";
-
-    /**
-     * Get the configuration for a GET request.
-     * @returns {Object} The configuration object for a GET request.
-     */
-    static getRequestConfig() {
-        return {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        };
-    }
 
     /**
      * Get the configuration for a POST request.
