@@ -21,6 +21,8 @@ Kickbase Live
 ![Static Badge](https://img.shields.io/badge/license-MIT-orange?style=for-the-badge)
 ![Static Badge](https://img.shields.io/badge/contributers-1-red?style=for-the-badge)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/180460b6-8abc-4d6b-8edf-3101ec75224d/deploy-status)](https://app.netlify.com/projects/kickbaselive/deploys)
+
 <a href="https://buymeacoffee.com/simonsagstd">
 
 ![Static Badge](https://img.shields.io/badge/buy_me_a_coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)
