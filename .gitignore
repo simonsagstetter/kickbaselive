@@ -39,3 +39,5 @@ public/index.html
 dev-dist
 
 .idea/
+# Local Netlify folder
+.netlify
