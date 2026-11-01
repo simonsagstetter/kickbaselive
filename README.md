@@ -11,9 +11,9 @@ Kickbase Live
 
 <div align="center">
 
-<a href="https://kickbase-live.web.app/">
+<a href="https://kickbaselive.netlify.app/">
 
-![Static Badge](https://img.shields.io/badge/test%20app%20on%20firebase-585858?style=for-the-badge&logo=firebase&logoColor=red)
+![Static Badge](https://img.shields.io/badge/test%20app%20on%20netlify-585858?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
 </a>
 
@@ -62,17 +62,17 @@ Kickbase Live is an alternative web client for **viewing performances of all mat
 
 ## Demo
 
-You can test this app with a demo I deployed on firebase hosting: https://kickbase-live.web.app/
+You can test this app with a demo I deployed on netlify [https://kickbase-live.web.app/](https://kickbaselive.netlify.app/)
 
 > **Important information:**
 
 > I am not storing your credentials. After the login the app makes a request to the offical Kickbase API to authenticate your account with their services. The app will receive an access token which will be stored locally in your browser. You can delete any data by logging out or deleting the application storage in the application tab within your browsers developer tools. The access token is valid for 7 days and you will be automatically logged out after it expires.
 
-> <small>The demo website should be only used for testing or demonstration purposes. This way you dont have to donwload the source code and you can have an initial look at the application. It uses a free hosting tier on firebase which is limited to 360MB traffic per day. So it might happen that website is not available when the limit is exceeded. If you want to fully benefit from this project you have to host it yourself or download and run it locally.</small>
+> <small>The demo website should be only used for testing or demonstration purposes. This way you dont have to donwload the source code and you can have an initial look at the application. If you want to fully benefit from this project you have to host it yourself or download and run it locally.</small>
 
 ## Setup
 
-_Tested with Node v20.9.0_
+_Tested with Node v24.22.2_
 
 Clone the repository
 
