@@ -34,13 +34,34 @@ function RootLayout() {
     });
 
     useEffect(() => {
-        if( globalThis.window !== undefined) {
-            const netlifyIframeElem = globalThis.window.document.getElementById("nl-hud-frame");
-            if(netlifyIframeElem) {
-                netlifyIframeElem.remove()
+        const removeBadge = () => {
+            if( globalThis.window !== undefined) {
+                const netlifyIframeElem = globalThis.window.document.getElementById("nl-hud-frame");
+                if(netlifyIframeElem) {
+                    netlifyIframeElem.remove();
+                    console.info("Removing nl-hud-frame");
+                    return true
+                }
             }
+            return false;
         }
-        return () => {}
+
+        if(removeBadge()) return;
+
+
+        const observer = new MutationObserver(() => {
+            const removed = removeBadge();
+            if(removed) observer.disconnect();
+        });
+
+        if(globalThis.window !== undefined) {
+            observer.observe(globalThis.window.document,{
+                childList: true,
+                subtree: true,
+            });
+        }
+
+        return () => observer.disconnect();
     });
 
     return (
