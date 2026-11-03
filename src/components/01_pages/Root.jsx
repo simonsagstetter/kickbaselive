@@ -33,6 +33,16 @@ function RootLayout() {
         return () => clearTimeout(timeout);
     });
 
+    useEffect(() => {
+        if( globalThis.window !== undefined) {
+            const netlifyIframeElem = globalThis.window.document.getElementById("nl-hud-frame");
+            if(netlifyIframeElem) {
+                netlifyIframeElem.remove()
+            }
+        }
+        return () => {}
+    });
+
     return (
         <QueryClientProvider client={getQueryClient()}>
             <UserNav />
