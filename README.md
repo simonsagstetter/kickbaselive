@@ -46,6 +46,8 @@ Kickbase Live is an alternative web client for **viewing performances of all mat
 -   [Features](#features)
 -   [Demo](#demo)
 -   [Setup](#setup)
+-   [Self-Hosting](#self-hosting)
+-   [API](#api)
 -   [Contributing](#contributing)
 -   [License](#license)
 
@@ -118,7 +120,233 @@ npm run preview
   ➜  press h + enter to show help
 ```
 
-### API
+## Self-Hosting
+
+Kickbase Live is a static React/Vite app, so any web server can host it. Besides serving the files, the server has to do two things:
+
+1. **Proxy `/api` to the Kickbase API.** This is the production equivalent of the Vite dev proxy. It also means the browser only talks to your own origin, so no CORS configuration is needed.
+2. **Fall back to `index.html`** for client-side routes, so a page reload on a deep link doesn't return a 404.
+
+### 1. Build the app
+
+```bash
+git clone https://github.com/simonsagstetter/kickbaselive.git
+cd kickbaselive/
+npm install
+npm run build
+```
+
+Copy the contents of the generated `dist/` folder to your server, e.g. `/var/www/kickbaselive`.
+
+### 2. Configure your web server
+
+> **Note:** The examples below assume the app calls `/api/...` and that the Kickbase API lives at `https://api.kickbase.com`. If you changed the proxy in `vite.config.ts`, adjust the paths and target accordingly. Replace `kickbaselive.example.com` with your own domain.
+
+#### nginx
+
+```nginx
+server {
+    listen 80;
+    server_name kickbaselive.example.com;
+    root /var/www/kickbaselive;
+    index index.html;
+
+    # /api/v4/... -> https://api.kickbase.com/v4/...
+    location /api/ {
+        proxy_pass https://api.kickbase.com/;   # the trailing slash strips /api
+        proxy_set_header Host api.kickbase.com;
+        proxy_ssl_server_name on;
+    }
+
+    # Long-term caching for hashed build assets
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    # SPA fallback
+    location / {
+        try_files $uri $uri/ /index.html;
+        add_header Cache-Control "no-cache";
+    }
+}
+```
+
+Test and reload: `nginx -t && systemctl reload nginx`
+
+#### Apache
+
+Enable the required modules:
+
+```bash
+a2enmod proxy proxy_http ssl rewrite headers
+systemctl restart apache2
+```
+
+```apache
+<VirtualHost *:80>
+    ServerName kickbaselive.example.com
+    DocumentRoot /var/www/kickbaselive
+
+    SSLProxyEngine On
+    ProxyPass        /api/ https://api.kickbase.com/
+    ProxyPassReverse /api/ https://api.kickbase.com/
+
+    <Directory /var/www/kickbaselive>
+        Options -Indexes
+        AllowOverride None
+        Require all granted
+
+        # SPA fallback
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^/api/
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^ /index.html [L]
+    </Directory>
+</VirtualHost>
+```
+
+#### Netlify / Vercel / Cloudflare Pages
+
+Platforms with built-in rewrites need no web server config. Add a rule such as the following to `public/_redirects` (Netlify):
+
+```
+/api/*  https://api.kickbase.com/:splat  200
+/*      /index.html                      200
+```
+
+### 3. Enable HTTPS
+
+HTTPS is required if you want to install the app as a PWA (service workers only run in a secure context, except on `localhost`). It also keeps your Kickbase login and access token from travelling in plain text.
+
+#### Option A: Let's Encrypt with certbot (recommended)
+
+Make sure your domain's DNS points to your server and ports 80 and 443 are open. Then run:
+
+```bash
+# cerbot
+sudo apt install snapd
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/local/bin/certbot
+
+# nginx
+sudo certbot --nginx -d kickbaselive.example.com
+
+# Apache
+sudo certbot --apache -d kickbaselive.example.com
+```
+
+Certbot obtains the certificate, edits your config to listen on 443, and adds an HTTP to HTTPS redirect. Check that automatic renewal works:
+
+```bash
+sudo certbot renew --dry-run
+```
+
+#### Option B: Manual configuration
+
+If you already have a certificate (or manage your own), this is what the config should look like.
+
+**nginx**
+
+```nginx
+# Redirect HTTP -> HTTPS
+server {
+    listen 80;
+    server_name kickbaselive.example.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name kickbaselive.example.com;
+
+    ssl_certificate     /etc/letsencrypt/live/kickbaselive.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kickbaselive.example.com/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    root /var/www/kickbaselive;
+    index index.html;
+
+    location /api/ {
+        proxy_pass https://api.kickbase.com/;   # the trailing slash strips /api
+        proxy_set_header Host api.kickbase.com;
+        proxy_ssl_server_name on;
+    }
+
+    location /assets/ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+        add_header Cache-Control "no-cache";
+    }
+}
+```
+
+**Apache**
+
+```bash
+a2enmod ssl
+systemctl restart apache2
+```
+
+```apache
+<VirtualHost *:80>
+    ServerName kickbaselive.example.com
+    Redirect permanent / https://kickbaselive.example.com/
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerName kickbaselive.example.com
+    DocumentRoot /var/www/kickbaselive
+
+    SSLEngine on
+    SSLCertificateFile    /etc/letsencrypt/live/kickbaselive.example.com/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/kickbaselive.example.com/privkey.pem
+    SSLProtocol           all -SSLv3 -TLSv1 -TLSv1.1
+
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    SSLProxyEngine On
+    ProxyPass        /api/ https://api.kickbase.com/
+    ProxyPassReverse /api/ https://api.kickbase.com/
+
+    <Directory /var/www/kickbaselive>
+        Options -Indexes
+        AllowOverride None
+        Require all granted
+
+        # SPA fallback
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^/api/
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^ /index.html [L]
+    </Directory>
+</VirtualHost>
+```
+
+> **Note:** `SSLProxyEngine On` (Apache) and `proxy_ssl_server_name on` (nginx) from step 2 are about the connection from your server to the Kickbase API. They are separate from the certificate for your own domain, and you need both.
+
+#### Local network or testing without a domain
+
+Let's Encrypt can't issue certificates for IP addresses or `.local` names. For a home server or local testing, use [mkcert](https://github.com/FiloSottile/mkcert) to create a locally trusted certificate, and point `ssl_certificate` / `SSLCertificateFile` at it. A plain self-signed certificate also works, but browsers will show a warning and may not allow PWA installation.
+
+#### Behind a reverse proxy or CDN
+
+If TLS is terminated upstream (Cloudflare, Traefik, a load balancer), the app server can stay on plain HTTP. Just make sure the proxy forwards `X-Forwarded-Proto: https`.
+
+#### Troubleshooting
+
+-   **404 on page reload:** the SPA fallback is missing.
+-   **API calls return 404 or hit the wrong URL:** check the trailing slashes on `proxy_pass` / `ProxyPass`. They strip the `/api` prefix.
+-   **Users don't see new versions after a deploy:** make sure `index.html` is not cached long-term.
+
+## API
 
 Im using the Kickbase v4 Endpoints which I have documented in my [Kickbase API v4 Docs](https://github.com/simonsagstetter/kickbase-api-v4-docs).
 
